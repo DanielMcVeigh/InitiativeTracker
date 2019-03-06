@@ -36,7 +36,7 @@ class ConnectedForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleAddClick}>
+            <form autoComplete="off" onSubmit={this.handleAddClick}>
                 <div className="form-group">
                     <label htmlFor="title">Title</label>
                     <input
