@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addPlayer } from "../actions/index.js";
-import store from "../store/index.js";
 
 function mapDispatchToProps(dispatch) {
     return {
