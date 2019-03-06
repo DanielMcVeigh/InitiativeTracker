@@ -6,14 +6,12 @@ const mapStateToProps = state => {
 };
 
 const ConnectedList = ({ arr }) => (
-    <ul className="list-group list-group-flush">
-    {arr.map(player => (
-        <li className="list-group-item" key={player} >
-        {player[0] + "-" + player[1]}
-        </li>
-    ))}
-    </ul>
-);
+    arr.map(player => (
+        <div>
+            <p>{player[0]} ---- {player[1]}</p>
+        </div>
+    ))
+)
 
 const PlayerList = connect(mapStateToProps)(ConnectedList);
 
