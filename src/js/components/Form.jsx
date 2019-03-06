@@ -14,7 +14,8 @@ class ConnectedForm extends Component {
         super();
 
         this.state = {
-            playerName: ""
+            playerName: "",
+            playerInit: ""
         };
 
         this.handleAddClick = this.handleAddClick.bind(this);
@@ -23,26 +24,33 @@ class ConnectedForm extends Component {
 
     handleAddClick(event) {
         event.preventDefault();
-        const { playerName } = this.state;
-        this.props.addPlayer([playerName, null]);
-        console.log(this.state.playerName)
-        this.setState({ playerName: playerName });
-        
+        const { playerName, playerInit } = this.state;
+        this.props.addPlayer([playerName, playerInit]);
+        this.setState({ playerName: "" , playerInit: ""});
+        document.getElementById("playerName").focus();
+
     };
 
     handleChange(event) {
-        this.setState({[event.target.id]: event.target.value});
+        this.setState({ [event.target.id]: event.target.value });
     }
 
     render() {
         return (
             <form autoComplete="off" onSubmit={this.handleAddClick}>
                 <div className="form-group">
-                    <label htmlFor="title">Title</label>
+                    <label htmlFor="title">Name: </label>
                     <input
                         type="text"
                         id="playerName"
                         value={this.state.playerName}
+                        onChange={this.handleChange.bind(this)}
+                    />
+                    <label htmlFor="title">Initiative: </label>
+                    <input
+                        type="text"
+                        id="playerInit"
+                        value={this.state.playerInit}
                         onChange={this.handleChange.bind(this)}
                     />
                 </div>
