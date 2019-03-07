@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import "../../styles/PlayerList.css";
 
 const mapStateToProps = state => {
     return { arr: state.arr };
@@ -7,8 +8,13 @@ const mapStateToProps = state => {
 
 const ConnectedList = ({ arr }) => (
     arr.map(player => (
-        <div>
-            <p>{player[0]} ---- {player[1]}</p>
+        <div className="parent">
+            <div className="playerName">
+                {player[0]}
+            </div>
+            <div className="playerInit">
+                {player[1]}
+            </div>
         </div>
     ))
 )

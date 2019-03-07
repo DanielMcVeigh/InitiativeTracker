@@ -1,0 +1,5 @@
+.parent{
+    padding: 1em;
+    justify-content: space-evenly;
+    display: flex;
+}

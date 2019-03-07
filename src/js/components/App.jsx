@@ -1,15 +1,20 @@
 import React from "react";
 import PlayerList from "./PlayerList";
 import Form from "./Form";
+import "../../styles/App.css";
 
 const App = () => (
-    <div className="row mt-5">
-        <div className="col-md-4 offset-md-1">
+    <div>
+        <div>
             <h2>Add a new player</h2>
             <Form />
         </div>
-        <div className="col-md-4 offset-md-1">
-            <h2>Players</h2>
+        <h2>Players</h2>
+        <div>
+            <div className="titles">
+                <div className="title"> Name: </div>
+                <div className="title"> Init: </div>
+            </div>
             <PlayerList />
         </div>
     </div>
