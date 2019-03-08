@@ -8,13 +8,8 @@ const mapStateToProps = state => {
 
 const ConnectedList = ({ arr }) => (
     arr.map(player => (
-        <div className="parent">
-            <div className="playerName">
-                {player[0]}
-            </div>
-            <div className="playerInit">
-                {player[1]}
-            </div>
+        <div className="playerName">
+            {player[0]}
         </div>
     ))
 )

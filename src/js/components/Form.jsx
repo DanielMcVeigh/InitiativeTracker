@@ -37,7 +37,7 @@ class ConnectedForm extends Component {
     render() {
         return (
             <form autoComplete="off" onSubmit={this.handleAddClick}>
-                <div className="form-group">
+                <div>
                     <label htmlFor="title">Name: </label>
                     <input
                         type="text"
@@ -53,7 +53,7 @@ class ConnectedForm extends Component {
                         onChange={this.handleChange.bind(this)}
                     />
                 </div>
-                <button type="submit" className="btn btn-success btn-lg">
+                <button type="submit">
                     SAVE
             </button>
             </form>
