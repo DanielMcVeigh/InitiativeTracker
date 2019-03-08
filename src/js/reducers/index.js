@@ -14,11 +14,12 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 arr: [...state.arr, action.payload]
             };
+
         case REMOVE_PLAYER:
             return {
                 ...state,
-                arr: [...state.arr.splice(0, action.payload),
-                ...state.arr.splice(action.payload + 1)]
+                arr: state.arr.filter(i => i != action.payload)
+            }
             };
 
         default:
