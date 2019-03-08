@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addPlayer } from "../actions/index.js";
+import { addPlayer, sortPlayers } from "../actions/index.js";
+import store from "../store/index.js";
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -30,6 +31,11 @@ class ConnectedForm extends Component {
 
     };
 
+    handleSortClick(event){
+        event.preventDefault();
+        store.dispatch(sortPlayers())
+    }
+
     handleChange(event) {
         this.setState({ [event.target.id]: event.target.value });
     }
@@ -55,6 +61,9 @@ class ConnectedForm extends Component {
                 </div>
                 <button type="submit">
                     SAVE
+            </button>
+            <button onClick={this.handleSortClick}>
+            SORT
             </button>
             </form>
         )
