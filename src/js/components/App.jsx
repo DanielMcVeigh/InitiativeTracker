@@ -1,5 +1,7 @@
 import React from "react";
 import PlayerList from "./PlayerList";
+import InitList from "./InitList";
+import RemoveList from "./RemoveList";
 import Form from "./Form";
 import "../../styles/App.css";
 
@@ -10,12 +12,19 @@ const App = () => (
             <Form />
         </div>
         <h2>Players</h2>
-        <div>
-            <div className="titles">
-                <div className="title"> Name: </div>
-                <div className="title"> Init: </div>
+        <div class="parent">
+            <div>
+                <h3>Name</h3>
+                <PlayerList />
             </div>
-            <PlayerList />
+            <div>
+                <h3>Initiative</h3>
+                <InitList />
+            </div>
+            <div>
+                <h3>Remove</h3>
+                <RemoveList />
+            </div>
         </div>
     </div>
 );
