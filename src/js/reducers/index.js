@@ -41,7 +41,7 @@ function rootReducer(state = initialState, action) {
             }
 
 
-            list.sort(function (a, b) {
+            list.sort(function (b,a) {
                 return ((a.init < b.init) ? -1 : ((a.init == b.init) ? 0 : 1));
             });
 
