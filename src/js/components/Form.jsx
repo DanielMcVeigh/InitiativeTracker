@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addPlayer, sortPlayers } from "../actions/index.js";
+import { addPlayer, sortPlayers, nextTurn } from "../actions/index.js";
 import store from "../store/index.js";
 
 function mapDispatchToProps(dispatch) {
@@ -19,6 +19,7 @@ class ConnectedForm extends Component {
         };
 
         this.handleAddClick = this.handleAddClick.bind(this);
+        this.handleNextClick = this.handleNextClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
     };
 
@@ -26,12 +27,17 @@ class ConnectedForm extends Component {
         event.preventDefault();
         const { playerName, playerInit } = this.state;
         this.props.addPlayer([playerName, playerInit]);
-        this.setState({ playerName: "" , playerInit: ""});
+        this.setState({ playerName: "", playerInit: "" });
         document.getElementById("playerName").focus();
 
     };
 
-    handleSortClick(event){
+    handleNextClick(event) {
+        event.preventDefault();
+        store.dispatch(nextTurn())
+    }
+
+    handleSortClick(event) {
         event.preventDefault();
         store.dispatch(sortPlayers())
     }
@@ -62,8 +68,11 @@ class ConnectedForm extends Component {
                 <button type="submit">
                     SAVE
             </button>
-            <button onClick={this.handleSortClick}>
-            SORT
+                <button onClick={this.handleSortClick}>
+                    SORT
+            </button>
+                <button onClick={this.handleNextClick}>
+                    NEXT TURN
             </button>
             </form>
         )
