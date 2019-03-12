@@ -19,7 +19,7 @@ function rootReducer(state = initialState, action) {
         case REMOVE_PLAYER:
             return {
                 ...state,
-                arr: state.arr.filter(i => i != action.payload)
+                arr: state.arr.filter(i => i !== action.payload)
             }
 
         case SORT_PLAYERS:
@@ -41,8 +41,8 @@ function rootReducer(state = initialState, action) {
             }
 
 
-            list.sort(function (b,a) {
-                return ((a.init < b.init) ? -1 : ((a.init == b.init) ? 0 : 1));
+            list.sort(function (a,b) {
+                return (b.init-a.init);
             });
 
             for (var k = 0; k < list.length; k++) {
